@@ -7,7 +7,7 @@
     "test": "",
     "tsc": "tsc",
     "start": "node ./dist/server.js",
-    "dev": "ts-node-dev ./src/employee/infraestructure/server.ts"
+    "dev": "ts-node-dev ./src/employee/infraestructure/express/servet.ts"
   },
   "keywords": [],
   "author": "",
