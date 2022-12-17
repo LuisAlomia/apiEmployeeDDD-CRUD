@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import cors from "cors";
 
 import { config } from "./config/env.config";
+import { router as employeeRouter } from "./employee/employee.router";
 import dbInit from "./db/mongo";
 
 class server {
@@ -14,6 +15,8 @@ class server {
 
     this.app.use(cors());
     this.app.use(express.json());
+
+    this.app.use("/api/v1/employee", employeeRouter);
 
     this.database();
     this.listen();
