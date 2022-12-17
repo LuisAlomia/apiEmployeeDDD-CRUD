@@ -8,9 +8,12 @@ export class UpdateEmployeeUseCase {
     this._employeeRepository = employeeRepository;
   }
 
-  async run(employee: EmployeeEntity): Promise<EmployeeEntity> {
+  async run(
+    employeeId: string,
+    employee: EmployeeEntity
+  ): Promise<EmployeeEntity> {
     const updateEmployee: EmployeeEntity =
-      await this._employeeRepository.update(employee);
+      await this._employeeRepository.update(employeeId, employee);
     return updateEmployee;
   }
 }
