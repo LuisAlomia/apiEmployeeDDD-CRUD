@@ -29,7 +29,7 @@ export class EmployeeCtrl {
   getAllEmployeeCtrl = async (req: Request, resp: Response) => {
     try {
       const data = await this._getAllEmployeeUseCase.run();
-      resp.status(204).json(data);
+      resp.status(200).json(data);
     } catch (err: any) {
       resp.status(400).json({ message: err.message });
     }
@@ -39,7 +39,7 @@ export class EmployeeCtrl {
     const { employee_Id } = req.params;
     try {
       const data = await this._getOneEmployeeUseCase.run(employee_Id);
-      resp.status(204).json(data);
+      resp.status(200).json(data);
     } catch (err: any) {
       resp.status(400).json({ message: err.message });
     }
