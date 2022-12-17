@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import cors from "cors";
 
 import { config } from "./config/env.config";
+import dbInit from "./db/mongo";
 
 class server {
   private readonly app: Application;
@@ -14,7 +15,12 @@ class server {
     this.app.use(cors());
     this.app.use(express.json());
 
+    this.database();
     this.listen();
+  }
+
+  database() {
+    dbInit();
   }
 
   listen() {
