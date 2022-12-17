@@ -22,7 +22,7 @@ export class EmployeeCtrl {
     const { body } = req;
 
     try {
-      const data = this._createEmployeeUseCase.run(body);
+      const data = await this._createEmployeeUseCase.run(body);
       resp.status(201).json(data);
     } catch (err: any) {
       resp.status(400).json({ message: err.message });
@@ -32,8 +32,9 @@ export class EmployeeCtrl {
   updateEmployeeCtrl = async (req: Request, resp: Response) => {
     const { body } = req;
     const { employee_Id } = req.params;
+
     try {
-      const data = this._updateEmployeeUseCase.run(employee_Id, body);
+      const data = await this._updateEmployeeUseCase.run(employee_Id, body);
       resp.status(201).json(data);
     } catch (err: any) {
       resp.status(400).json({ message: err.message });
@@ -43,7 +44,7 @@ export class EmployeeCtrl {
   deleteEmployeeCtrl = async (req: Request, resp: Response) => {
     const { employee_Id } = req.params;
     try {
-      const data = this._deleteEmployeeUseCase.run(employee_Id);
+      const data = await this._deleteEmployeeUseCase.run(employee_Id);
       resp.status(204).json(data);
     } catch (err: any) {
       resp.status(400).json({ message: err.message });

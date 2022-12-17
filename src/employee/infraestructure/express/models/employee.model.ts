@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const Empployee = new Schema({
+  uuid: { type: String },
   name: { type: String },
   email: { type: String, unique: true },
   age: { type: Number },

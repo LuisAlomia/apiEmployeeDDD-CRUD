@@ -1,5 +1,5 @@
 export interface EmployeeEntity {
-  uuid?: string;
+  uuid: string;
   name: string;
   email: string;
   age: number;

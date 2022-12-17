@@ -8,13 +8,16 @@ export class MongoRepository implements EmployeeRepository {
     return newEmployee;
   }
   async delete(employeeId: string): Promise<any> {
-    const employee = await EmployeeModel.deleteOne({ employeeId });
+    const employee = await EmployeeModel.deleteOne({ uuid: employeeId });
     return employee;
   }
   async update(employeeId: string, employee: EmployeeEntity): Promise<any> {
-    const employeeUpdate = await EmployeeModel.updateOne(employee, {
-      employeeId,
-    });
+    const employeeUpdate = await EmployeeModel.updateOne(
+      {
+        uuid: employeeId,
+      },
+      employee
+    );
     return employeeUpdate;
   }
 }
