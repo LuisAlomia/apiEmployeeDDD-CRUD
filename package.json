@@ -6,7 +6,7 @@
   "scripts": {
     "test": "",
     "tsc": "tsc",
-    "start": "node ./dist/server.js",
+    "start": "node ./dist/infraestructure/express/servet.js",
     "dev": "ts-node-dev ./src/employee/infraestructure/express/servet.ts"
   },
   "keywords": [],
